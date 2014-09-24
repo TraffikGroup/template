@@ -6,10 +6,7 @@ module.exports = function(grunt) {
 				separator : ';'
 			},
 			js : {
-				src : ['assets/js/vendor/jquery-1.11.0.min.js', 
-		
-				'assets/js/main.js',
-				'assets/js/portfolio.js'
+				src : ['bower_components/jquery/dist/jquery.js'
 				],
 				dest : 'assets/js/<%= pkg.name %>.js'
 			}
@@ -25,7 +22,7 @@ module.exports = function(grunt) {
 			}
 		},
 		jshint : {
-			files : ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+			files : ['Gruntfile.js'],
 			options : {
 				// options here to override JSHint defaults
 				globals : {
@@ -60,10 +57,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-sass');
-	grunt.loadNpmTasks('grunt-img');
+
 
 	grunt.registerTask('test', ['jshint', 'concat']);
-	grunt.registerTask('default', [ 'jshint', 'sass', 'concat','img']);
+	grunt.registerTask('default', [ 'jshint', 'sass', 'concat']);
 	grunt.registerTask('build', ['jshint', 'sass', 'concat', 'uglify']);
 	grunt.registerTask('cssonly', ['sass']);
 };
